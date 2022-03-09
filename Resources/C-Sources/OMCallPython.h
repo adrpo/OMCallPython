@@ -18,7 +18,7 @@
 static omcPyLibTy omc_PythonDLL = NULL;
 
 #include <stdio.h>
-#include <Python.h> /* assume Python.h is in $MODELICAUSERCFLAGS which points to the place where Python.h is via -I/path/to/python/include/ */
+#include <Python.h>
 
 typedef char* (*fnptr_omc_Py_Initialize)();
 static fnptr_omc_Py_Initialize omc_Py_Initialize = NULL;

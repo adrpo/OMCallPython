@@ -12,7 +12,7 @@ package OMCallPython
         output PythonLibraryHandle pyHandle;
 
         external "C" pyHandle = omc_PyLibLoad(pyLibPath) annotation (
-          IncludeDirectory = "modelica://OMCallPython/Resources/C-Sources",
+          IncludeDirectory = {"modelica://OMCallPython/Resources/C-Sources", PyIncludePath},
           Include = "#include \"OMCallPython.h\"");
       end constructor;
 
@@ -20,7 +20,7 @@ package OMCallPython
         input PythonLibraryHandle pyHandle;
 
         external "C" omc_PyLibFree(pyHandle) annotation (
-          IncludeDirectory = "modelica://OMCallPython/Resources/C-Sources",
+          IncludeDirectory = {"modelica://OMCallPython/Resources/C-Sources", PyIncludePath},
           Include = "#include \"OMCallPython.h\"");
       end destructor;
     end PythonLibraryHandle;
@@ -29,7 +29,7 @@ package OMCallPython
       input PythonLibraryHandle pyHandle;
 
       external "C" omc_Py_Initialize() annotation (
-        IncludeDirectory = "modelica://OMCallPython/Resources/C-Sources",
+        IncludeDirectory = {"modelica://OMCallPython/Resources/C-Sources", PyIncludePath},
         Include = "#include \"OMCallPython.h\"");
     end initialize;
 
@@ -38,7 +38,7 @@ package OMCallPython
       input String pyProgram;
 
       external "C" omc_PyRun_SimpleString(pyProgram) annotation (
-        IncludeDirectory = "modelica://OMCallPython/Resources/C-Sources",
+        IncludeDirectory = {"modelica://OMCallPython/Resources/C-Sources", PyIncludePath},
         Include = "#include \"OMCallPython.h\"");
     end run;
 
@@ -46,7 +46,7 @@ package OMCallPython
       input PythonLibraryHandle pyHandle;
 
       external "C" omc_Py_Finalize() annotation (
-        IncludeDirectory = "modelica://OMCallPython/Resources/C-Sources",
+        IncludeDirectory = {"modelica://OMCallPython/Resources/C-Sources", PyIncludePath},
         Include = "#include \"OMCallPython.h\"");
     end finalize;
   end Py;
